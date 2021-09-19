@@ -50,6 +50,7 @@ function showMillioniare() {
 // calculate total wealth of users
 function calculateTotalWealth() {
   const wealth = data.reduce((acc, user) => (acc += user.money), 0);
+
   const el = document.createElement('div');
   el.innerHTML = `
     <h3>Total Wealth: <b>$${formatMoney(wealth)}</b> </h3>
@@ -60,13 +61,11 @@ function calculateTotalWealth() {
 // Add New obj to data arr
 function addData(obj) {
   data.push(obj);
-
   updateDOM();
 }
 
 // Update DOM
 function updateDOM(providedData = data) {
-  // clear main div
   main.innerHTML = `
   <h2> <b>Person</b> Wealth </h2>
   `;
